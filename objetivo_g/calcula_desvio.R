@@ -26,6 +26,14 @@ desvioSimplesFromJson <- function (json){
 
   print(paste("O desvio simples da area de plantio de", CULTURA_1, ":", desvio_simples))
 
+  desvio_fosforo <- desvioSimples(cultura_1$fosforo, verbose = FALSE)
+
+  print(paste("O desvio simples do fosforo de", CULTURA_1, ":", desvio_fosforo))
+
+  desvio_potassio <- desvioSimples(cultura_1$potassio, verbose = FALSE)
+
+  print(paste("O desvio simples do potassio de", CULTURA_1, ":", desvio_potassio))
+
   print(paste("Calculando o desvio simples da area de plantio de", CULTURA_2))
 
   cultura_2 <- getDadosCultura2(json)
@@ -33,6 +41,15 @@ desvioSimplesFromJson <- function (json){
   desvio_simples2 <- desvioSimples(cultura_2$area, verbose = FALSE)
 
   print(paste("O desvio simples da area de plantio de", CULTURA_2, ":", desvio_simples2))
+
+  desvio_fosforo2 <- desvioSimples(cultura_2$fosforo, verbose = FALSE)
+
+  print(paste("O desvio simples do fosforo de", CULTURA_2, ":", desvio_fosforo2))
+
+  desvio_potassio2 <- desvioSimples(cultura_2$potassio, verbose = FALSE)
+
+  print(paste("O desvio simples do potassio de", CULTURA_2, ":", desvio_potassio2))
+
 
 }
 
@@ -60,6 +77,14 @@ desvioAbsolutoMedioFromJson <- function (json){
 
   print(paste("O desvio absoluto medio da area de plantio de", CULTURA_1, ":", dam))
 
+  dam_fosforo <- desvioAbsolutoMedio(cultura_1$fosforo, verbose = FALSE)
+
+  print(paste("O desvio absoluto medio do fosforo de", CULTURA_1, ":", dam_fosforo))
+
+  dam_potassio <- desvioAbsolutoMedio(cultura_1$potassio, verbose = FALSE)
+
+  print(paste("O desvio absoluto medio do potassio de", CULTURA_1, ":", dam_potassio))
+
   print(paste("Calculando o desvio absoluto medio da area de plantio de", CULTURA_2))
 
   cultura_2 <- getDadosCultura2(json)
@@ -67,6 +92,14 @@ desvioAbsolutoMedioFromJson <- function (json){
   dam2 <- desvioAbsolutoMedio(cultura_2$area, verbose = FALSE)
 
   print(paste("O desvio absoluto medio da area de plantio de", CULTURA_2, ":", dam2))
+
+  dam_fosforo2 <- desvioAbsolutoMedio(cultura_2$fosforo, verbose = FALSE)
+
+  print(paste("O desvio absoluto medio do fosforo de", CULTURA_2, ":", dam_fosforo2))
+
+  dam_potassio2 <- desvioAbsolutoMedio(cultura_2$potassio, verbose = FALSE)
+
+  print(paste("O desvio absoluto medio do potassio de", CULTURA_2, ":", dam_potassio2))
 
 }
 
@@ -97,6 +130,14 @@ desvioPadraoAmostralFromJson <- function (json){
 
   print(paste("O desvio padrão amostral da area de plantio de", CULTURA_1, ":", desvio_padrao))
 
+  desvio_fosforo <- desvioPadraoAmostral(cultura_1$fosforo, verbose = FALSE)
+
+  print(paste("O desvio padrão amostral do fosforo de", CULTURA_1, ":", desvio_fosforo))
+
+  desvio_potassio <- desvioPadraoAmostral(cultura_1$potassio, verbose = FALSE)
+
+  print(paste("O desvio padrão amostral do potassio de", CULTURA_1, ":", desvio_potassio))
+
   print(paste("Calculando o desvio padrão amostral da area de plantio de", CULTURA_2))
 
   cultura_2 <- getDadosCultura2(json)
@@ -104,6 +145,14 @@ desvioPadraoAmostralFromJson <- function (json){
   desvio_padrao2 <- desvioPadraoAmostral(cultura_2$area, verbose = FALSE)
 
   print(paste("O desvio padrão amostral da area de plantio de", CULTURA_2, ":", desvio_padrao2))
+
+  desvio_fosforo2 <- desvioPadraoAmostral(cultura_2$fosforo, verbose = FALSE)
+
+  print(paste("O desvio padrão amostral do fosforo de", CULTURA_2, ":", desvio_fosforo2))
+
+  desvio_potassio2 <- desvioPadraoAmostral(cultura_2$potassio, verbose = FALSE)
+
+  print(paste("O desvio padrão amostral do potassio de", CULTURA_2, ":", desvio_potassio2))
 
 }
 
@@ -133,6 +182,14 @@ desvioRelativoPercentualFromJson <- function (json){
 
   print(paste("O desvio relativo percentual da area de plantio de", CULTURA_1, ":", desvio_relativo))
 
+  desvio_fosforo <- desvioRelativoPercentual(cultura_1$fosforo, verbose = FALSE)
+
+  print(paste("O desvio relativo percentual do fosforo de", CULTURA_1, ":", desvio_fosforo))
+
+  desvio_potassio <- desvioRelativoPercentual(cultura_1$potassio, verbose = FALSE)
+
+  print(paste("O desvio relativo percentual do potassio de", CULTURA_1, ":", desvio_potassio))
+
   print(paste("Calculando o desvio relativo percentual da area de plantio de", CULTURA_2))
 
   cultura_2 <- getDadosCultura2(json)
@@ -140,6 +197,14 @@ desvioRelativoPercentualFromJson <- function (json){
   desvio_relativo2 <- desvioRelativoPercentual(cultura_2$area, verbose = FALSE)
 
   print(paste("O desvio relativo percentual da area de plantio de", CULTURA_2, ":", desvio_relativo2))
+
+  desvio_fosforo2 <- desvioRelativoPercentual(cultura_2$fosforo, verbose = FALSE)
+
+  print(paste("O desvio relativo percentual do fosforo de", CULTURA_2, ":", desvio_fosforo2))
+
+  desvio_potassio2 <- desvioRelativoPercentual(cultura_2$potassio, verbose = FALSE)
+
+  print(paste("O desvio relativo percentual do potassio de", CULTURA_2, ":", desvio_potassio2))
 
 }
 

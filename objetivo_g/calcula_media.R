@@ -27,6 +27,14 @@ calculaMediasFromJson <- function (json){
 
     print(paste("A media da area de plantio de", CULTURA_1, ":", area_media, "m2"))
 
+    fosforo_media <- calculaMedia(cultura_1$fosforo)
+
+    print(paste("A media do fosforo de", CULTURA_1, ":", fosforo_media, "kg"))
+
+    potassio_media <- calculaMedia(cultura_1$potassio)
+
+    print(paste("A media do potassio de", CULTURA_1, ":", potassio_media, "kg"))
+
     print(paste("Calculando a media da area de plantio de", CULTURA_2))
 
     cultura_2 <- getDadosCultura2(json)
@@ -34,6 +42,14 @@ calculaMediasFromJson <- function (json){
     area_media2 <- calculaMedia(cultura_2$area)
 
     print(paste("A media da area de plantio de ", CULTURA_2, ":", area_media2, "m2"))
+
+    fosforo_media2 <- calculaMedia(cultura_2$fosforo)
+
+    print(paste("A media do fosforo de", CULTURA_2, ":", fosforo_media2, "kg"))
+
+    potassio_media2 <- calculaMedia(cultura_2$potassio)
+
+    print(paste("A media do potassio de", CULTURA_2, ":", potassio_media2, "kg"))
 
 }
 

@@ -28,8 +28,8 @@ def calcular_insumos(tipo, area: float) -> Insumos:
         return Insumos(tipo, fosforo, potassio)
 
     elif tipo == CULTURA_2:
-        potassio = 120 * area_hectares
         fosforo = 100 * area_hectares
+        potassio = 120 * area_hectares
 
         return Insumos(tipo, fosforo, potassio)
 
