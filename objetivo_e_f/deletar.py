@@ -17,17 +17,17 @@ def deletar_dados(culturas:Culturas):
         return
 
     if cultura_nome == '1':
-        cultura_nome = 'cultura1'
+        cultura_nome = CULTURA_1
 
     elif cultura_nome == '2':
-        cultura_nome = 'cultura2'
+        cultura_nome = CULTURA_2
 
     else:
         print("Cultura não reconhecida. Retornando ao menu.")
         return
     
     print(f"Você escolheu a {cultura_nome} para deletar os dados.")
-    if cultura_nome == 'cultura1':
-        deletar_formato_cultura(culturas, 'cultura1')
-    elif cultura_nome == 'cultura2':
-        deletar_formato_cultura(culturas, 'cultura2')
+    if cultura_nome == CULTURA_1:
+        deletar_formato_cultura(culturas, CULTURA_1)
+    elif cultura_nome == CULTURA_2:
+        deletar_formato_cultura(culturas, CULTURA_2)

@@ -1,3 +1,4 @@
+from objetivo_a.culturas import CULTURA_1, CULTURA_2
 from objetivo_d.vetor_de_dados import Culturas
 from objetivo_e_f.utils_menu import input_int
 
@@ -34,12 +35,13 @@ def deletar_formato_cultura(culturas:Culturas, cultura_nome):
         print("Operação cancelada. Retornando ao menu.")
         return  # Cancela a operação
     elif confirmacao == '1' or confirmacao == 'sim':
-        culturas[cultura_nome].pop(indice - 1)
 
-        if cultura_nome == 'cultura_1':
+        if cultura_nome == CULTURA_1:
             culturas.remove_area_cultura_1(indice - 1)
-        else:
+        elif cultura_nome == CULTURA_2:
             culturas.remove_area_cultura_2(indice - 1)
+        else:
+            print("Cultura não reconhecida. Retornando ao menu.")
 
 
         print(f"Registro {indice} deletado com sucesso.")
