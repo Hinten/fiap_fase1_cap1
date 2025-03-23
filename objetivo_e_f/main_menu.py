@@ -31,8 +31,18 @@ def main():
         elif escolha in {'4', 'deletar', 'deletar dados'}:
             deletar_dados(culturas)
         elif escolha in {'0', 'sair', 'sair do programa', 'fechar'}:
-            print("Saindo do programa...")
-            break
+            print("\n Tem certeza que deseja sair?")
+            sair = input(f"""
+ 1 - Sim
+ 2 - Não
+    """).strip().lower()
+            if sair in ['1', 'sim', 's']:
+                print("Saindo do Programa...")
+                break
+            elif sair in ['2', 'nao', 'não', 'n']:
+                print("Retornando ao menu...")
+            else:
+                print("Resposta inválida. Retornando ao menu...")
         else:
             print("Opção inválida. Tente novamente.")
 
