@@ -1,6 +1,7 @@
 from objetivo_e_f.utils_atualizar import atualizar_formato_cultura1
 from objetivo_e_f.utils_atualizar import atualizar_formato_cultura2
 from objetivo_a.culturas import CULTURA_1, CULTURA_2
+from objetivo_b.armazenamento_resultado_ruas import carregar_resultado_ruas
 
 # Função para atualizar dados de cultura
 def atualizar_dados(culturas):

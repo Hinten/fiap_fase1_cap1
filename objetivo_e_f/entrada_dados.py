@@ -1,7 +1,7 @@
 from objetivo_e_f.utils_menu import input_float
 from objetivo_e_f.utils_menu import calcular_manejo
 from objetivo_a.culturas import CULTURA_1, CULTURA_2, Culturas
-
+from objetivo_b.armazenamento_resultado_ruas import salvar_resultado_ruas
 
 # Função para entrada de dados de cultura
 def entrada_dados(culturas:Culturas):
@@ -76,7 +76,9 @@ def entrada_dados(culturas:Culturas):
     # Calcular o manejo de insumo automaticamente com base na cultura e na área
     manejo = calcular_manejo(cultura_nome, area)
 
-    ruas_min = int(area // espacamento_max )
-    ruas_max = int(area // espacamento_min )
+    ruas_min = int(area // espacamento_max)
+    ruas_max = int(area // espacamento_min)
+
+    salvar_resultado_ruas(ruas_min, ruas_max)
     
     print(f"Dados de {cultura_nome} registrados com sucesso. Manejo de insumo calculado: {manejo} mL. Ruas calculadas: {ruas_min:.0f} a {ruas_max:.0f} ruas.")

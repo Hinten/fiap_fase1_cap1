@@ -1,6 +1,7 @@
 from typing import List
 import json
 from time import sleep
+from objetivo_b.armazenamento_resultado_ruas import carregar_resultado_ruas
 
 
 CULTURA_1 = "Cana-de-Açucar"
@@ -9,17 +10,18 @@ CULTURA_2 = "Milho"
 # culturas = {'cultura1': [], 'cultura2': []}
 
 
+
 class Area:
     # 1 = retângulo
     # 2 = triangulo
     tipo: str
     base: float
     altura: float
-
     def __init__(self, tipo: str, base: float, altura: float):
         self.tipo = tipo
         self.base = base
         self.altura = altura
+
 
     def to_json(self):
         return {
