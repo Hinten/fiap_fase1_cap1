@@ -1,4 +1,5 @@
 from objetivo_d.vetor_de_dados import Culturas
+from objetivo_e_f.apresentacao_de_dados import apresentacao_de_dados
 from objetivo_e_f.utils_menu import input_int, input_float
 
 
@@ -67,6 +68,8 @@ def atualizar_formato_cultura1(culturas:Culturas, cultura_nome):  # Função par
         # Atualiza o dado no registro escolhido
 
         print(f'A área foi atualizada com sucesso. A nova área do plantio é: {area:.2f} m²')
+        print(f"{apresentacao_de_dados(cultura_nome, area)}")
+
         return area  # Retorna a área calculada
 
 def atualizar_formato_cultura2(culturas:Culturas, cultura_nome):  # Função para cultura2
@@ -136,4 +139,5 @@ def atualizar_formato_cultura2(culturas:Culturas, cultura_nome):  # Função par
         # culturas[cultura_nome][indice - 1]['manejo'] = area * 500  # Ou o cálculo apropriado
 
         print(f'A área foi atualizada com sucesso. A nova área do plantio é: {area:.2f}m²')
+        print(f"{apresentacao_de_dados(cultura_nome, area)}")
         return area  # Retorna a área calculada

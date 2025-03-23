@@ -1,3 +1,4 @@
+from objetivo_e_f.apresentacao_de_dados import apresentacao_de_dados
 from objetivo_e_f.utils_menu import input_float
 from objetivo_e_f.utils_menu import calcular_manejo
 from objetivo_a.culturas import CULTURA_1, CULTURA_2
@@ -19,14 +20,12 @@ def entrada_dados(culturas:Culturas):
     if cultura_nome not in {'1', CULTURA_1, '2', CULTURA_2}:
         print("Cultura não reconhecida. Retornando ao menu.")
         return
+
     if cultura_nome in {'1', CULTURA_1}:
         cultura_nome = CULTURA_1
-        espacamento_min = 1.0
-        espacamento_max = 1.8
-    if cultura_nome in {'2', CULTURA_2}:
+
+    elif cultura_nome in {'2', CULTURA_2}:
         cultura_nome = CULTURA_2
-        espacamento_min = 0.5
-        espacamento_max = 0.9
 
     #todo verificar o tipo de área por cultura e chamar a função correta
     def entrada_formato():# Função para entrada de formato do plantio (dentro de entrada_dados)
@@ -75,9 +74,6 @@ def entrada_dados(culturas:Culturas):
         return
 
     # Calcular o manejo de insumo automaticamente com base na cultura e na área
-    manejo = calcular_manejo(cultura_nome, area)
 
-    ruas_min = int(area // espacamento_max )
-    ruas_max = int(area // espacamento_min )
-    
-    print(f"Dados de {cultura_nome} registrados com sucesso. Manejo de insumo calculado: {manejo} mL. Ruas calculadas: {ruas_min:.0f} a {ruas_max:.0f} ruas.")
+    print(f"Dados de {cultura_nome} registrados com sucesso.")
+    print(apresentacao_de_dados(cultura_nome, area))

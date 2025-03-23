@@ -7,7 +7,7 @@ def salvar_resultado_ruas(ruas_min: int, ruas_max: int, arquivo="resultados_ruas
         'ruas_max': ruas_max
     }
     with open(arquivo, 'w') as f:
-        json.dump(dados, f, indent=4)
+        f.write(json.dumps(dados))
     print("Resultados das ruas salvos com sucesso.")
 
 def carregar_resultado_ruas(arquivo="resultados_ruas.json"):

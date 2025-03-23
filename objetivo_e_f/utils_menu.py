@@ -14,14 +14,13 @@ insumo_por_metro = {
     "cultura2": 300   # Em mL/m²
 }
 def input_float(chamada):
-    texto = ''
-    while not texto.isnumeric():
-        texto = input(chamada)
+    texto = None
+    while texto is None:
+        try:
+            texto = float(input(chamada))
+            return texto
 
-        if texto.isnumeric():
-            numero = float(texto)
-            return numero
-        else:
+        except ValueError:
             print('Digite um número válido.')      
 
 def input_int(chamada):

@@ -52,7 +52,7 @@ previsao_do_tempo <- function(cidade){
 previsao_proxima_semana <- function(cidade){
   cidade <- obter_nome_cidade()
   weather <- weather_forecast(cidade,
-                   start = Sys.Date(),
+                   start = Sys.Date() + 1,
                    end = Sys.Date()+ 7,
                    daily = "temperature_2m_max",
                    timezone = timezone)
@@ -69,7 +69,7 @@ previsao_proxima_semana <- function(cidade){
 previsao_semana_passada <- function(cidade){
   cidade <- obter_nome_cidade()
   weather <- weather_history(cidade,
-                  start = Sys.Date() - 8,
+                  start = Sys.Date() - 7,
                   end = Sys.Date() - 1,
                   daily = "temperature_2m_max",
                   timezone = timezone)
