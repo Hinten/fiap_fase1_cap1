@@ -1,56 +1,64 @@
 culturas = []
 
-
 def calcular_area(tipo: str, base: float, altura: float):
+    return base * altura
+
+#Fontes: https://www.embrapa.br/agencia-de-informacao-tecnologica/cultivos/milho/producao/manejo-do-solo-e-adubacao/adubacao-e-fertilidade-do-solo/adubacao-mineral
+# https://www.embrapa.br/agencia-de-informacao-tecnologica/cultivos/cana/producao/correcao-e-adubacao/diagnose-das-necessidades-nutricionais/recomendacao-de-correcao-e-adubacao/adubacao-mineral
+def calcular_insumos(tipo, area: float):
+    area_hectares = area / 10000
+
     if tipo == "Cana-de-açúcar":
-        return base * altura
+        fosforo = 120 * area_hectares
+        potassio = 200 * area_hectares
     elif tipo == "Milho":
-        return base * altura 
+        potassio = 120 * area_hectares
+        fosforo = 100 * area_hectares
     else:
-        return 'Digite um valor válido*'
+        return 'Tipo de cultura inválido'
 
-
-def calcular_insumos(tipo, area: float, consumo_por_metro: float):
-    return area * consumo_por_metro  
+    return {
+        "Fosforo (kg)": fosforo,
+        "Potassio (kg)": potassio
+    }
 
 def adicionar_cultura():
     print("\nCadastro de nova cultura:")
     tipo = input("Digite o tipo de cultura (Cana-de-açúcar ou Milho): ")
-    
+
     if tipo not in ["Cana-de-açúcar", "Milho"]:
-        print("🚨 Cultura inválida! Tente novamente.")
+        print("Cultura inválida! Tente novamente.")
         return
-    
+
     base = float(input("Digite a largura do terreno (em metros): "))
     altura = float(input("Digite o comprimento do terreno (em metros): "))
     area = calcular_area(tipo, base, altura)
 
-    consumo_por_metro = float(input("Digite o consumo de insumo por metro quadrado: "))
-    insumos_necessarios = calcular_insumos(tipo, area, consumo_por_metro)
+    insumos_necessarios = calcular_insumos(tipo, area)
 
     culturas.append({
         "Tipo": tipo,
-        "Área": area,
-        "Consumo de insumos": insumos_necessarios
+        "Area (m²)": area,
+        "Fosforo (kg)": insumos_necessarios["Fosforo (kg)"],
+        "Potassio (kg)": insumos_necessarios["Potassio (kg)"]
     })
-    print("\n✅ Cultura adicionada com sucesso!\n")
+    print("\nCultura adicionada com sucesso!\n")
 
 def exibir_culturas():
     if not culturas:
-        print("\n🚨 Nenhuma cultura cadastrada ainda!\n")
+        print("\nNenhuma cultura cadastrada ainda!\n")
         return
 
-    print("\n📋 Culturas cadastradas:")
+    print("\nCulturas cadastradas:")
     for i, cultura in enumerate(culturas):
-        print(f"{i + 1}. Tipo: {cultura['Tipo']} - Área: {cultura['Área']} m² - Insumos: {cultura['Consumo de insumos']} L")
-
+        print(f"{i + 1}. Tipo: {cultura['Tipo']} - Area: {cultura['Area (m²)']} m² - Fosforo: {cultura['Fosforo (kg)']} kg - Potassio: {cultura['Potassio (kg)']} kg")
 
 def menu():
     while True:
-        print("\n🌱 **Sistema de Gerenciamento Agrícola** 🌱")
-        print("1️⃣ - Adicionar Cultura")
-        print("2️⃣ - Exibir Culturas")
-        print("3️⃣ - Sair")
+        print("\nSistema de Gerenciamento Agrícola")
+        print("1 - Adicionar Cultura")
+        print("2 - Exibir Culturas")
+        print("3 - Sair")
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
@@ -58,10 +66,10 @@ def menu():
         elif opcao == "2":
             exibir_culturas()
         elif opcao == "3":
-            print("\n👋 Saindo do sistema... Até mais!\n")
+            print("\nSaindo do sistema... Até mais!\n")
             break
         else:
-            print("\n🚨 Opção inválida! Tente novamente.\n")
+            print("\nOpção inválida! Tente novamente.\n")
 
 if __name__ == "__main__":
     menu()
