@@ -1,4 +1,11 @@
-install.packages(c("openmeteo"), lib= 'ir_alem/lib', repos = "https://cloud.r-project.org/")
+install.packages(c("openmeteo",
+                   "tibblify",
+                   "withr",
+                   "purrr",
+                   "testthat",
+                   "dplyr",
+                   "tidyr"
+), lib= 'ir_alem/lib', repos = "https://cloud.r-project.org/")
 library('openmeteo', lib.loc = "ir_alem/lib")
 library('tibblify', lib.loc = "ir_alem/lib")
 library('withr', lib.loc = "ir_alem/lib")
@@ -32,7 +39,14 @@ obter_nome_cidade <- function(){
 previsao_do_tempo <- function(cidade){
   cidade <- obter_nome_cidade()
   weather <- weather_now(cidade, timezone = timezone)
-  print(weather)
+
+  #uma tiblle renomeando as colunas
+    weather_novo <- tibble(
+        data = weather$datetime,
+        temperatura = weather$temperature,
+    )
+
+  print(weather_novo)
 }
 
 previsao_proxima_semana <- function(cidade){
@@ -42,7 +56,14 @@ previsao_proxima_semana <- function(cidade){
                    end = Sys.Date()+ 7,
                    daily = "temperature_2m_max",
                    timezone = timezone)
-  print(weather)
+
+  #renomear colunas
+  weather_novo <- tibble(
+      data = weather$date,
+      temperatura = weather$daily_temperature_2m_max,
+  )
+
+  print(weather_novo)
 }
 
 previsao_semana_passada <- function(cidade){
@@ -52,7 +73,13 @@ previsao_semana_passada <- function(cidade){
                   end = Sys.Date() - 1,
                   daily = "temperature_2m_max",
                   timezone = timezone)
-  print(weather)
+  #renomear colunas
+  weather_novo <- tibble(
+      data = weather$date,
+      temperatura = weather$daily_temperature_2m_max,
+  )
+
+  print(weather_novo)
 }
 
 menu_weather <- function(){

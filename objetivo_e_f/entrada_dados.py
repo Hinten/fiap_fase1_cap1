@@ -1,6 +1,7 @@
 from objetivo_e_f.utils_menu import input_float
 from objetivo_e_f.utils_menu import calcular_manejo
-from objetivo_a.culturas import CULTURA_1, CULTURA_2, Culturas
+from objetivo_a.culturas import CULTURA_1, CULTURA_2
+from objetivo_d.vetor_de_dados import Culturas
 
 
 # Função para entrada de dados de cultura
@@ -15,15 +16,15 @@ def entrada_dados(culturas:Culturas):
     if cultura_nome in ('0', 'voltar ao menu', 'voltar'):
         print ("Retornando ao menu principal.")
         return
-    if cultura_nome not in {'1', 'CULTURA_1', '2', 'CULTURA_2'}:
+    if cultura_nome not in {'1', CULTURA_1, '2', CULTURA_2}:
         print("Cultura não reconhecida. Retornando ao menu.")
         return
-    if cultura_nome in {'1', 'CULTURA_1'}:
-        cultura_nome = 'CULTURA_1'
+    if cultura_nome in {'1', CULTURA_1}:
+        cultura_nome = CULTURA_1
         espacamento_min = 1.0
         espacamento_max = 1.8
-    if cultura_nome in {'2', 'CULTURA_2'}:
-        cultura_nome = 'CULTURA_2'
+    if cultura_nome in {'2', CULTURA_2}:
+        cultura_nome = CULTURA_2
         espacamento_min = 0.5
         espacamento_max = 0.9
 
@@ -48,7 +49,7 @@ def entrada_dados(culturas:Culturas):
             base = input_float('Digite as dimensões do segundo lado: ')
             area = base * altura
 
-            if cultura_nome == 'CULTURA_1':
+            if cultura_nome == CULTURA_1:
                 culturas.append_area_cultura_1(tipo='1', base=base, altura=altura)
             else:
                 culturas.append_area_cultura_2(tipo='1', base=base, altura=altura)
@@ -60,7 +61,7 @@ def entrada_dados(culturas:Culturas):
             base = input_float('Digite a base do triângulo: ')
             area = (base * altura) / 2
 
-            if cultura_nome == 'CULTURA_1':
+            if cultura_nome == CULTURA_1:
                 culturas.append_area_cultura_1(tipo='2', base=base, altura=altura)
             else:
                 culturas.append_area_cultura_2(tipo='2', base=base, altura=altura)

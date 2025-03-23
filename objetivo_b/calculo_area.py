@@ -1,5 +1,7 @@
 culturas = []
 
+# cálculo de insumos baseado na fonte http://
+
 def calcular_area(tipo: str, base: float, altura: float):
     if tipo == "Cana-de-açúcar":
         return base * altura

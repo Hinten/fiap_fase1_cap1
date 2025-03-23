@@ -6,7 +6,7 @@ library(readr)
 
 loadData <- function(){
 
-  file_path <- "data.json"
+  file_path <- "culturas.json"
   if (file.exists(file_path) == FALSE) {
     stop("File not found")
   }

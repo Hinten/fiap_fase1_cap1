@@ -1,5 +1,5 @@
 from objetivo_e_f.entrada_dados import entrada_dados # Importando a função de entrada de dados
-from objetivo_a.culturas import Culturas
+from objetivo_d.vetor_de_dados import Culturas
 from objetivo_e_f.saida_dados import saida_dados # Importando a função de saída de dados
 from objetivo_e_f.atualizar import atualizar_dados # Importando a função de atualização de dados
 from objetivo_e_f.deletar import deletar_dados # Importando a função de deleção de dados

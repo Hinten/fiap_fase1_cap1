@@ -1,6 +1,8 @@
 source("objetivo_g/read_file.R")
 source("objetivo_g/calcula_media.R")
 source("objetivo_g/calcula_desvio.R")
+source("objetivo_g/calcula_mediana.R")
+source("objetivo_g/calcula_moda.R")
 
 sair <- function (){
     sair <- tolower(trimws(readline(prompt = "Tem certeza que deseja sair? (s/n)")))
@@ -24,21 +26,25 @@ menu <- function(){
     cat(sprintf("%10s\n", "Menu"))
     cat(strrep("-", 20), "\n")
     print("1 - Calcular media")
-    print("2 - Calcular desvio simples")
-    print("3 - Calcular desvio absoluto medio")
-    print("4 - Calcular desvio padrao amostral")
-    print("5 - Calcular desvio relativo percentual")
-    print("6 - Sair")
+    print("2 - Calcular mediana")
+    print("3 - Calcular moda")
+    print("4 - Calcular desvio simples")
+    print("5 - Calcular desvio absoluto medio")
+    print("6 - Calcular desvio padrao amostral")
+    print("7 - Calcular desvio relativo percentual")
+    print("8 - Sair")
 
     opcao <- trimws(readline(prompt = "Digite a opcao: "))
 
     switch(opcao,
-      '1' = calculaMedia(data),
-      '2' = desvioSimples(data),
-      '3' = desvioAbsolutoMedio(data),
-      '4' = desvioPadraoAmostral(data),
-      '5' = desvioRelativoPercentual(data),
-      '6' = sair(),
+      '1' = calculaMediasFromJson(data),
+      '2' = calculaMedianaFromJson(data),
+      '3' = calcularModaFromJson(data),
+      '4' = desvioSimplesFromJson(data),
+      '5' = desvioAbsolutoMedioFromJson(data),
+      '6' = desvioPadraoAmostralFromJson(data),
+      '7' = desvioRelativoPercentualFromJson(data),
+      '8' = sair(),
       print('Opcao invalida')
     )
   }

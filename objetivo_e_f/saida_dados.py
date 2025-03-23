@@ -1,4 +1,6 @@
-from objetivo_a.culturas import CULTURA_1, CULTURA_2, Culturas
+from objetivo_a.culturas import CULTURA_1, CULTURA_2
+from objetivo_d.vetor_de_dados import Culturas
+
 
 
 # Função para saída de dados

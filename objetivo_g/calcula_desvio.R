@@ -1,5 +1,6 @@
 source("objetivo_g/utils.R")
 source("objetivo_g/calcula_media.R")
+source("objetivo_g/preparar_dados.R")
 
 desvioSimples <- function (vetor, verbose = TRUE){
   media <- calculaMedia(vetor, verbose = FALSE)
@@ -8,10 +9,30 @@ desvioSimples <- function (vetor, verbose = TRUE){
 
   if (verbose) {
     #todo formatar
-    print(paste('O desvio simples é: ', paste(desvio_simples, collapse = ', ')))
+    print(paste('O desvio simples: ', paste(desvio_simples, collapse = ', ')))
 
   }
   return(desvio_simples)
+
+}
+
+desvioSimplesFromJson <- function (json){
+
+  cultura_1 <- getDadosCultura1(json)
+
+  print(paste("Calculando o desvio simples da area de plantio de", CULTURA_1))
+
+  desvio_simples <- desvioSimples(cultura_1$area, verbose = FALSE)
+
+  print(paste("O desvio simples da area de plantio de", CULTURA_1, ":", desvio_simples))
+
+  print(paste("Calculando o desvio simples da area de plantio de", CULTURA_2))
+
+  cultura_2 <- getDadosCultura2(json)
+
+  desvio_simples2 <- desvioSimples(cultura_2$area, verbose = FALSE)
+
+  print(paste("O desvio simples da area de plantio de", CULTURA_2, ":", desvio_simples2))
 
 }
 
@@ -22,10 +43,30 @@ desvioAbsolutoMedio <- function (vetor, verbose = TRUE){
 
   if (verbose){
     #todo formatar
-    print(paste('O desvio absoluto médio é:', paste(absoluto_medio, collapse = ', ')))
+    print(paste('O desvio absoluto medio:', paste(absoluto_medio, collapse = ', ')))
   }
 
   return(absoluto_medio)
+
+}
+
+desvioAbsolutoMedioFromJson <- function (json){
+
+  cultura_1 <- getDadosCultura1(json)
+
+  print(paste("Calculando o desvio absoluto medio da area de plantio de", CULTURA_1))
+
+  dam <- desvioAbsolutoMedio(cultura_1$area, verbose = FALSE)
+
+  print(paste("O desvio absoluto medio da area de plantio de", CULTURA_1, ":", dam))
+
+  print(paste("Calculando o desvio absoluto medio da area de plantio de", CULTURA_2))
+
+  cultura_2 <- getDadosCultura2(json)
+
+  dam2 <- desvioAbsolutoMedio(cultura_2$area, verbose = FALSE)
+
+  print(paste("O desvio absoluto medio da area de plantio de", CULTURA_2, ":", dam2))
 
 }
 
@@ -39,10 +80,30 @@ desvioPadraoAmostral <- function (vetor, verbose = TRUE){
 
   if (verbose){
     #todo formatar
-    print(paste('O desvio padrão é:', desvio_padrao))
+    print(paste('O desvio padrão:', desvio_padrao))
   }
 
   return(desvio_padrao)
+
+}
+
+desvioPadraoAmostralFromJson <- function (json){
+
+  cultura_1 <- getDadosCultura1(json)
+
+  print(paste("Calculando o desvio padrão amostral da area de plantio de", CULTURA_1))
+
+  desvio_padrao <- desvioPadraoAmostral(cultura_1$area, verbose = FALSE)
+
+  print(paste("O desvio padrão amostral da area de plantio de", CULTURA_1, ":", desvio_padrao))
+
+  print(paste("Calculando o desvio padrão amostral da area de plantio de", CULTURA_2))
+
+  cultura_2 <- getDadosCultura2(json)
+
+  desvio_padrao2 <- desvioPadraoAmostral(cultura_2$area, verbose = FALSE)
+
+  print(paste("O desvio padrão amostral da area de plantio de", CULTURA_2, ":", desvio_padrao2))
 
 }
 
@@ -55,10 +116,30 @@ desvioRelativoPercentual <- function (vetor, verbose = TRUE){
 
   if (verbose){
     #todo formatar percentual
-    print(paste("O desvio relativo percentual é: ", desvio_relativo))
+    print(paste("O desvio relativo percentual: ", desvio_relativo))
   }
 
   return(desvio_relativo)
+
+}
+
+desvioRelativoPercentualFromJson <- function (json){
+
+  cultura_1 <- getDadosCultura1(json)
+
+  print(paste("Calculando o desvio relativo percentual da area de plantio de", CULTURA_1))
+
+  desvio_relativo <- desvioRelativoPercentual(cultura_1$area, verbose = FALSE)
+
+  print(paste("O desvio relativo percentual da area de plantio de", CULTURA_1, ":", desvio_relativo))
+
+  print(paste("Calculando o desvio relativo percentual da area de plantio de", CULTURA_2))
+
+  cultura_2 <- getDadosCultura2(json)
+
+  desvio_relativo2 <- desvioRelativoPercentual(cultura_2$area, verbose = FALSE)
+
+  print(paste("O desvio relativo percentual da area de plantio de", CULTURA_2, ":", desvio_relativo2))
 
 }
 

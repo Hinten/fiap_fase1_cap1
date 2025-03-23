@@ -1,4 +1,4 @@
-from objetivo_a.culturas import Culturas
+from objetivo_d.vetor_de_dados import Culturas
 from objetivo_e_f.utils_menu import input_int
 
 
